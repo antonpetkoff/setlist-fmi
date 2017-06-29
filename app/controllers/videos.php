@@ -14,20 +14,14 @@ class VideosController extends BaseController {
 	}
 
 	function add() {
-		$config = include('config.php');
+		$videos_model = new Videos();
 
 		if (isset($_POST['submit'])) {
 			try {
+			  $name = $_POST['name'];
 				$file_name = FileUploader::upload($_FILES['file']);
 
-			  echo "Uploaded file: " . $file_name;
-
-			  // Persist uploaded video file name in DB
-			  $name = $_POST['name'];
-				$videos = new Videos();
-				$result = $videos->upload($name, $file_name);
-
-				if ($result) {
+				if ($videos_model->upload($name, $file_name)) {
 					header('Location: /index.php?q=site/home');
 				} else {
 					throw new RuntimeException("Failed to persist video meta data.");

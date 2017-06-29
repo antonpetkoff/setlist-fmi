@@ -5,7 +5,6 @@ class FileUploader {
   static function upload($file) {
     $config = include('config.php');
 
-    // TODO: extract validation
     if (!isset($file['error']) || is_array($file['error'])) {
       throw new RuntimeException('Invalid upload form parameters.');
     }
@@ -31,13 +30,12 @@ class FileUploader {
     $temp_file = $file['tmp_name'];
 
     // Check MIME Type
-    $allowed_formats = array(
-      'mp4' => 'video/mp4',
-      'webm' => 'video/webm',
-      'ogg' => 'video/ogg',
-    );
     $file_info = new finfo(FILEINFO_MIME_TYPE);
-    $extension = array_search($file_info->file($temp_file), $allowed_formats, true);
+    $extension = array_search(
+      $file_info->file($temp_file),
+      $config['ALLOWED_VIDEO_FORMATS'],
+      true
+    );
 
     if ($extension === false) {
       throw new RuntimeException('Invalid file format.');
