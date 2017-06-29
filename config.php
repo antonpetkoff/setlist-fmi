@@ -7,5 +7,5 @@ return array(
     'USER' => 'root',
     'PASS' => ''
   ),
-  'CONTENT_DIR' => 'content/'
+  'CONTENT_DIR' => 'content'
 );

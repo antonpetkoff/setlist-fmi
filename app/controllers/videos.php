@@ -13,22 +13,20 @@ class VideosController extends BaseController {
 	}
 
 	function add() {
-		$content_dir = join('/', array(getcwd(), 'content/'));
+		$config = include('config.php');
 
 		if (isset($_POST['submit'])) {
 		  $file_name = $_FILES['file']['name'];
 		  $temp = $_FILES['file']['tmp_name'];
-		  $url = $content_dir . $file_name;
+		  $url =  join('/', array(getcwd(), $config['CONTENT_DIR'], $file_name));
 
 		  move_uploaded_file($temp, $url);
-		  echo "Uploaded file: " . $url;
+		  echo "Uploaded file: " . $file_name;
 
-		  var_dump($_POST);
-
-		  // TODO: store in DB
 		  $name = $_POST['name'];
 			$videos = new Videos();
-			$result = $videos->upload($name, $url);
+		  // TODO: store file_name with sha1
+			$result = $videos->upload($name, $file_name);
 
 			if ($result) {
 				header('Location: /index.php?q=site/home');
@@ -42,8 +40,10 @@ class VideosController extends BaseController {
 	}
 
 	function view($video_id) {
+		$config = include('config.php');
 		$videos = new Videos();
 		$video = $videos->get($video_id);
+		$video['url'] = join('/', array($config['CONTENT_DIR'], $video['url']));
 		$view_params = array('video'=>$video);
 		$this->render('videos/view', $view_params);
 	}
