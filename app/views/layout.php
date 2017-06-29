@@ -21,6 +21,7 @@
 		<nav>
 			<a href="index.php">Home</a>
 			<a href="index.php?q=courses/all">Courses</a>
+			<a href="index.php?q=courses/add">Add course</a>
 		</nav>
 		<?php echo $content; ?>
 	</body>
