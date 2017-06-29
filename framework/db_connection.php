@@ -1,16 +1,17 @@
 <?php
 
 class DBConnection {
-	public $host   = "localhost";
-	public $db     = "setlist-fmi";
-	public $user   = "root";
-	public $pass   = "";
 	public $conn   = null;
 
 	private static $instance = null;
 
 	function __construct() {
-		$this->conn = new PDO("mysql:host={$this->host};dbname={$this->db}", $this->user, $this->pass);
+		$config = include('config.php');
+
+		$this->conn = new PDO(
+			"mysql:host={$config['DB']['HOST']};dbname={$config['DB']['DATABASE']}",
+			$config['DB']['USER'],
+			$config['DB']['PASS']);
 	}
 
 	static function get_instance() {
