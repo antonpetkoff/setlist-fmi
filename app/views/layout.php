@@ -20,8 +20,8 @@
 		</p>
 		<nav>
 			<a href="index.php">Home</a>
-			<a href="index.php?q=courses/all">Courses</a>
-			<a href="index.php?q=courses/add">Add course</a>
+			<a href="index.php?q=videos/all">Videos</a>
+			<a href="index.php?q=videos/add">Add video</a>
 		</nav>
 		<?php echo $content; ?>
 	</body>
