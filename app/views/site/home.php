@@ -1,3 +1,3 @@
-<h1>Hello</h1>
+<h1>Добре дошли!</h1>
 
-You have opened this page <?php echo $params['visits']; ?> times.
+<div>Setlist.FMI е мястото, където можете да гледате и качвате видео лекции свободно!</div>

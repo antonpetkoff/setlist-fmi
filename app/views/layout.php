@@ -3,25 +3,27 @@
 		<title>Setlist.FMI</title>
 	</head>
 	<body>
-		<h1 class="heading">Setlist.FMI</h1>
-		<p>
-			<?php
-				$user_email = '';
-				if (array_key_exists('user_email', $_SESSION)) {
-					$user_email = $_SESSION['user_email'];
-				}
-				if ($user_email) {
-					echo "Hello, $user_email | <a href=\"index.php?q=users/logout\">Log out</a>";
-				} else {
-					echo '<a href="index.php?q=users/login">Log in</a>';
-					echo ' <a href="index.php?q=users/register">Register</a>';
-				}
-			?>
-		</p>
+		<div class="heading">
+			<h1>Setlist.FMI</h1>
+			<div class="user-entrance">
+				<?php
+					$user_email = '';
+					if (array_key_exists('user_email', $_SESSION)) {
+						$user_email = $_SESSION['user_email'];
+					}
+					if ($user_email) {
+						echo "Здравей, $user_email | <a class=\"button\" href=\"index.php?q=users/logout\">Изход</a>";
+					} else {
+						echo '<a class="button" href="index.php?q=users/login">Вход</a>';
+						echo ' <a class="button" href="index.php?q=users/register">Регистрация</a>';
+					}
+				?>
+			</div>
+		</div>
 		<nav class="top-nav">
-			<a href="index.php">Home</a>
-			<a href="index.php?q=videos/all">Лекции</a>
-			<a href="index.php?q=videos/add">Добави лекция</a>
+			<a class="button" href="index.php">Начало</a>
+			<a class="button" href="index.php?q=videos/all">Лекции</a>
+			<a class="button" href="index.php?q=videos/add">Добави лекция</a>
 		</nav>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="app/views/layout.css">
