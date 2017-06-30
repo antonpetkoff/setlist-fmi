@@ -1,0 +1,21 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.heading {
+  background: linear-gradient(to right, rgb(222, 205, 0), rgba(255,0,0,0));
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.top-nav a {
+  border: 1px solid black;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.top-nav a:visited {
+  color: black;
+}

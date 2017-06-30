@@ -6,6 +6,7 @@ class BaseController {
 		ob_start();
 		require("app/views/$view.php");
 		$content = ob_get_contents();
+    $style = "app/views/$view.css";
 		ob_end_clean();
 		require("app/views/layout.php");
 	}

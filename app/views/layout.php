@@ -1,9 +1,9 @@
 <html>
 	<head>
-		<title>Electives</title>
+		<title>Setlist.FMI</title>
 	</head>
 	<body>
-		<h1>Setlist.FMI</h1>
+		<h1 class="heading">Setlist.FMI</h1>
 		<p>
 			<?php
 				$user_email = '';
@@ -18,11 +18,14 @@
 				}
 			?>
 		</p>
-		<nav>
+		<nav class="top-nav">
 			<a href="index.php">Home</a>
-			<a href="index.php?q=videos/all">Videos</a>
-			<a href="index.php?q=videos/add">Add video</a>
+			<a href="index.php?q=videos/all">Лекции</a>
+			<a href="index.php?q=videos/add">Добави лекция</a>
 		</nav>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="app/views/layout.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo $style; ?>">
 		<?php echo $content; ?>
 	</body>
 </html>
