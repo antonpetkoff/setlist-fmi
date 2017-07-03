@@ -7,8 +7,13 @@ require('utils/file_uploader.php');
 class VideosController extends BaseController {
 
 	function all() {
+		if (!$_GET && !$_GET['courseId']) {
+			throw new RuntimeException("Bad GET params in add videos.");
+		}
+
+		$course_id = $_GET['courseId'];
 		$model = new Videos();
-		$videos = $model->get_all();
+		$videos = $model->get_all_by_course_id($course_id);
 		$params = array('videos'=>$videos);
 		$this->render('videos/all', $params);
 	}

@@ -1,3 +1,11 @@
-<h2><?php echo $params['course']['title']; ?></h2>
-<h3><?php echo $params['course']['teacher']; ?></h3>
-<p><?php echo $params['course']['description']; ?></p>
+<h2>Име на курса: <?php echo $params['course']['title']; ?></h2>
+<h3>Преподавател: <?php echo $params['course']['lecturer']; ?></h3>
+<p>Описание: <?php echo $params['course']['description']; ?></p>
+
+<a class="button" href="index.php?q=videos/add&courseId=<?php echo $params['course']['id']; ?>">
+  Добави лекция
+</a>
+
+<a class="button" href="index.php?q=videos/all&courseId=<?php echo $params['course']['id']; ?>">
+  Гледай лекции
+</a>
