@@ -16,20 +16,27 @@ class VideosController extends BaseController {
 	function add() {
 		$videos_model = new Videos();
 
-		if (isset($_POST['submit'])) {
-			try {
+		try {
+			if (!$_GET && !$_GET['courseId']) {
+				throw new RuntimeException("Bad GET params in add videos.");
+			}
+
+			$course_id = $_GET['courseId'];
+
+			if (isset($_POST['submit'])) {
 			  $name = $_POST['name'];
 			  $description = $_POST['description'];
 				$file_name = FileUploader::upload($_FILES['file']);
 
-				if ($videos_model->upload($name, $file_name, $description)) {
+				if ($videos_model->upload($name, $file_name, $description, $course_id)) {
 					header('Location: /index.php?q=site/home');
 				} else {
 					throw new RuntimeException("Failed to persist video meta data.");
 				}
-			} catch (RuntimeException $e) {
-				echo "Error: " . $e->getMessage();
 			}
+
+		} catch (RuntimeException $e) {
+			echo "Error: " . $e->getMessage();
 		}
 
 		$params = array();
