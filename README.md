@@ -1,6 +1,6 @@
 ## Setlist.FMI
 
-* `tables.sql` is the script which creates all tables used by the application.
+* `setlist-fmi.sql` is the script which creates all tables used by the application.
 
 * Use `config.php` to configure various parameters of the application like `CONTENT_DIR` and `MAX_VIDEO_SIZE`.
 
