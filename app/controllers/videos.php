@@ -6,15 +6,24 @@ require('utils/file_uploader.php');
 
 class VideosController extends BaseController {
 
+	function search() {
+		$this->render('videos/search', array());
+	}
+
 	function all() {
-		if (!$_GET && !$_GET['courseId']) {
-			throw new RuntimeException("Bad GET params in add videos.");
+		$model = new Videos();
+
+		if ($_GET && array_key_exists('courseId', $_GET)) {
+			$course_id = $_GET['courseId'];
+			$videos = $model->get_all_by_course_id($course_id);
+		} else if ($_POST && isset($_POST['submit'])) {
+		  $filter = $_POST['filter'];
+		  $videos = $model->filter($filter);
+		} else {
+			throw new RuntimeException("Bad params for videos/add.");
 		}
 
-		$course_id = $_GET['courseId'];
-		$model = new Videos();
-		$videos = $model->get_all_by_course_id($course_id);
-		$params = array('videos'=>$videos);
+		$params = array('videos' => $videos);
 		$this->render('videos/all', $params);
 	}
 

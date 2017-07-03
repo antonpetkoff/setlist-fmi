@@ -40,7 +40,25 @@ SQL;
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
       $result[] = $row;
     }
+
     return $result;
   }
 
+  function filter($name) {
+    $sql = <<<SQL
+      SELECT {$this->table_name}.id as videoId, {$this->table_name}.*, courses.*
+      FROM {$this->table_name}
+      INNER JOIN courses
+      ON courses.id = {$this->table_name}.courseId
+      WHERE {$this->table_name}.name LIKE '%{$name}%';
+SQL;
+
+    $query = $this->conn->query($sql) or die("query failed!");
+    $result = array();
+    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+      $result[] = $row;
+    }
+
+    return $result;
+  }
 }

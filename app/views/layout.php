@@ -8,6 +8,7 @@
 			<nav class="top-nav">
 				<a class="button" href="index.php">Начало</a>
 				<a class="button" href="index.php?q=courses/all">Курсове</a>
+				<a class="button" href="index.php?q=videos/search">Търсене</a>
 				<a class="button" href="index.php?q=courses/add">Добави курс</a>
 			</nav>
 			<div class="user-entrance">
