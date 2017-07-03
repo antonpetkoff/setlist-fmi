@@ -5,6 +5,11 @@
 	<body>
 		<div class="heading">
 			<h1>Setlist.FMI</h1>
+			<nav class="top-nav">
+				<a class="button" href="index.php">Начало</a>
+				<a class="button" href="index.php?q=courses/all">Курсове</a>
+				<a class="button" href="index.php?q=courses/add">Добави курс</a>
+			</nav>
 			<div class="user-entrance">
 				<?php
 					$user_email = '';
@@ -20,13 +25,6 @@
 				?>
 			</div>
 		</div>
-		<nav class="top-nav">
-			<a class="button" href="index.php">Начало</a>
-			<a class="button" href="index.php?q=courses/all">Курсове</a>
-			<a class="button" href="index.php?q=courses/add">Добави курс</a>
-			<a class="button" href="index.php?q=videos/all">Лекции</a>
-			<a class="button" href="index.php?q=videos/add">Добави лекция</a>
-		</nav>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="app/views/layout.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo $style; ?>">
