@@ -9,7 +9,7 @@ class DBConnection {
 		$config = include('config.php');
 
 		$this->conn = new PDO(
-			"mysql:host={$config['DB']['HOST']};dbname={$config['DB']['DATABASE']}",
+			"mysql:host={$config['DB']['HOST']};dbname={$config['DB']['DATABASE']};charset=UTF8",
 			$config['DB']['USER'],
 			$config['DB']['PASS']);
 	}
