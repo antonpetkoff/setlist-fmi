@@ -1,0 +1,4 @@
+form.add-course > * {
+  display: block;
+  margin: 10px;
+}

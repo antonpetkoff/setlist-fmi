@@ -6,10 +6,10 @@ class Videos extends BaseModel {
 
 	public $table_name = 'videos';
 
-  function upload($name, $url) {
-    $sql = "INSERT INTO videos (name, url) VALUES(?, ?)";
+  function upload($name, $url, $description) {
+    $sql = "INSERT INTO videos (name, url, description) VALUES(?, ?, ?)";
     $stmt = $this->conn->prepare($sql);
-    $result = $stmt->execute(array($name, $url));
+    $result = $stmt->execute(array($name, $url, $description));
     return $result;
   }
 

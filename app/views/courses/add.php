@@ -1,7 +1,8 @@
-<h2>Add course</h2>
+<h2>Добави курс</h2>
 
-<form method="POST" enctype="multipart/form-data">
-  <input type="name" />
-  <input type="file" name="file" />
-  <input type="submit" name="submit" value="Upload" />
+<form class="add-course" method="POST">
+  <input name="title" type="text" placeholder="Име на курса" />
+  <input name="lecturer" type="text" placeholder="Преподавател" />
+  <textarea name="description">Описание на курса</textarea>
+  <input name="submit" type="submit" value="Добави" />
 </form>

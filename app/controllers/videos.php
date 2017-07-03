@@ -19,9 +19,10 @@ class VideosController extends BaseController {
 		if (isset($_POST['submit'])) {
 			try {
 			  $name = $_POST['name'];
+			  $description = $_POST['description'];
 				$file_name = FileUploader::upload($_FILES['file']);
 
-				if ($videos_model->upload($name, $file_name)) {
+				if ($videos_model->upload($name, $file_name, $description)) {
 					header('Location: /index.php?q=site/home');
 				} else {
 					throw new RuntimeException("Failed to persist video meta data.");

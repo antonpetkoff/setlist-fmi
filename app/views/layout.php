@@ -22,6 +22,8 @@
 		</div>
 		<nav class="top-nav">
 			<a class="button" href="index.php">Начало</a>
+			<a class="button" href="index.php?q=courses/all">Курсове</a>
+			<a class="button" href="index.php?q=courses/add">Добави курс</a>
 			<a class="button" href="index.php?q=videos/all">Лекции</a>
 			<a class="button" href="index.php?q=videos/add">Добави лекция</a>
 		</nav>
