@@ -1,4 +1,6 @@
-<form method="POST" action="index.php?q=videos/all">
-  <input name="filter" type="text" />
-  <input name="submit" type="submit" value="Търси" />
-</form>
+<div class="search-container">
+  <form class="search-field" method="POST" action="index.php?q=videos/all">
+    <input name="filter" type="text" placeholder="Търси" />
+    <input name="submit" type="submit" value="Търси" />
+  </form>
+</div>
