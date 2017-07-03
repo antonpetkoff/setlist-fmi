@@ -29,6 +29,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="app/views/layout.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo $style; ?>">
-		<?php echo $content; ?>
+		<div class="content">
+			<?php echo $content; ?>
+		</div>
 	</body>
 </html>

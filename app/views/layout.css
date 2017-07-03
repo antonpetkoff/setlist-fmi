@@ -10,6 +10,15 @@ a:visited {
   color: black;
 }
 
+form > * {
+  display: block;
+  margin: 10px;
+}
+
+.content {
+  padding: 10px;
+}
+
 .button {
   background-color: #f6ffc1;
   border: 1px solid black;
