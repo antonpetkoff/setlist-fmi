@@ -46,7 +46,7 @@ class VideosController extends BaseController {
 	function view($video_id) {
 		$config = include('config.php');
 		$videos = new Videos();
-		$video = $videos->get($video_id);
+		$video = $videos->get_with_course($video_id);
 		$video['url'] = join('/', array($config['CONTENT_DIR'], $video['url']));
 		$view_params = array('video'=>$video);
 		$this->render('videos/view', $view_params);
